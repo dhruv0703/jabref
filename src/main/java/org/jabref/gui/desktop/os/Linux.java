@@ -48,9 +48,13 @@ public class Linux extends NativeDesktop {
                     Runtime.getRuntime().exec(cmd);
                 } catch (Exception e2) {
                     LoggerFactory.getLogger(Linux.class).warn("Open operation not successful: ", e2);
+                    // Log the stack trace for better debugging
+                LoggerFactory.getLogger(Linux.class).error("Exception stack trace:", e2);
                 }
             } catch (IOException e) {
                 LoggerFactory.getLogger(Linux.class).warn("Native open operation not successful: ", e);
+                  // Log the stack trace for better debugging
+            LoggerFactory.getLogger(Linux.class).error("Exception stack trace:", e);
             }
         });
     }
